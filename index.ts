@@ -149,16 +149,16 @@ const cores = [
   "YellowGreen",
 ];
 
-const menorOuMaior = (posicaoCor, posicaoEscolha) => {
+const menorOuMaior = (posicaoCor: number, posicaoEscolha: number) => {
   if (posicaoCor > posicaoEscolha) {
     return "inferior";
   }
   return "superior";
 };
 
-const checarOrdemAlfabetica = (arr, resposta, escolha) => {
-  posicaoCor = arr.indexOf(resposta);
-  posicaoEscolha = arr.indexOf(escolha);
+const checarOrdemAlfabetica = (arr: Array<any>, resposta: string, escolha: string) => {
+  const posicaoCor = arr.indexOf(resposta);
+  const posicaoEscolha = arr.indexOf(escolha);
 
   if (posicaoCor === -1 || posicaoEscolha === -1) {
     return null;
@@ -166,7 +166,7 @@ const checarOrdemAlfabetica = (arr, resposta, escolha) => {
   return menorOuMaior(posicaoCor, posicaoEscolha);
 };
 
-let coresSelecionadas = [];
+let coresSelecionadas: string[] = [];
 
 for (let i = 0; i < 10; i++) {
   const index = Math.floor(Math.random() * cores.length);
@@ -182,21 +182,25 @@ var resposta = coresSelecionadas[index];
 console.log(resposta);
 
 let disponiveis = "| ";
-for (cor of coresSelecionadas) {
+for (let cor of coresSelecionadas) {
   disponiveis += cor + " | ";
 }
 
 do {
   var escolha = prompt(`${disponiveis} \n\nQual cor estou pensando?`);
-  const ordem = checarOrdemAlfabetica(coresSelecionadas, resposta, escolha);
 
-  if (!ordem) {
-    alert(`Escolha inválida!`);
-  } else if (resposta.toLowerCase() !== escolha.toLowerCase()) {
-    alert(
-      `Seu chute não está correto!\n Dica: sua cor é alfabeticamente ${ordem} à minha.\n Tente novamente :)`
-    );
+  if (escolha) {
+    const ordem = checarOrdemAlfabetica(coresSelecionadas, resposta, escolha);
+
+    if (!ordem) {
+      alert(`Escolha inválida!`);
+    } else if (resposta.toLowerCase() !== escolha.toLowerCase()) {
+      alert(
+        `Seu chute não está correto!\n Dica: sua cor é alfabeticamente ${ordem} à minha.\n Tente novamente :)`
+      );
+    }
   }
-} while (resposta.toLowerCase() !== escolha.toLowerCase());
+
+} while (resposta.toLowerCase() !== escolha?.toLowerCase());
 
 alert("You Win!");

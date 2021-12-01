@@ -1,0 +1,23 @@
+{
+  "name": "jogo-cores",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.5.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabriel-menezessilva/jogo-cores.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabriel-menezessilva/jogo-cores/issues"
+  },
+  "homepage": "https://github.com/gabriel-menezessilva/jogo-cores#readme"
+}
